@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Count & Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Error Count & Analysis</h2>
+        <textarea id="text-input" name="text" placeholder="Enter your text here" oninput="handleTyping()"></textarea>
+        <br>
+        <button type="button" onclick="analyzeText()">Analyze Text</button>
+    
+        <div class="output-section blur" id="output-section">
+            <h3>Corrected Text</h3>
+            <pre id="corrected-text"></pre>
+        </div>
+    
+        <div class="tabs blur" id="tabs">
+            <div class="tab active" data-tab="all" onclick="showTab('all')">All Errors (0)</div>
+            <div class="tab" data-tab="capitalization" onclick="showTab('capitalization')">Capitalization (0)</div>
+            <div class="tab" data-tab="grammar" onclick="showTab('grammar')">Grammar (0)</div>
+            <div class="tab" data-tab="spelling" onclick="showTab('spelling')">Spelling (0)</div>
+            <div class="tab" data-tab="punctuation" onclick="showTab('punctuation')">Punctuation (0)</div>
+        </div>
+    
+        <div id="all" class="tab-content blur active">
+            <h3>All Errors</h3>
+            <ul id="all-errors" class="error-list"></ul>
+        </div>
+    
+        <div id="capitalization" class="tab-content blur">
+            <h3>Capitalization Errors</h3>
+            <ul id="capitalization-errors" class="error-list"></ul>
+        </div>
+    
+        <div id="grammar" class="tab-content blur">
+            <h3>Grammar Errors</h3>
+            <ul id="grammar-errors" class="error-list"></ul>
+        </div>
+    
+        <div id="spelling" class="tab-content blur">
+            <h3>Spelling Errors</h3>
+            <ul id="spelling-errors" class="error-list"></ul>
+        </div>
+    
+        <div id="punctuation" class="tab-content blur">
+            <h3>Punctuation Errors</h3>
+            <ul id="punctuation-errors" class="error-list"></ul>
+        </div>
+    </div>
+    
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
